@@ -7,7 +7,7 @@ pacman -S sudo fish
 
 echo Creating new user newusername...
 useradd -m -G wheel newusername
-echo Enter a password for newusername (this can be changed later):
+echo "Enter a password for newusername (this can be changed later):"
 passwd newusername
 echo "newusername ALL=(ALL) ALL" >> /etc/sudoers
 chsh -s /usr/bin/fish newusername 
