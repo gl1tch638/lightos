@@ -34,4 +34,4 @@ qol:
 
 # sources and thanks
 this project couldn't be possible without these useful sources!
-https://github.com/LinuxDroidMaster/Termux-Desktops
+- https://github.com/LinuxDroidMaster/Termux-Desktops
