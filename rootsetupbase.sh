@@ -14,11 +14,12 @@ passwd $newusername
 echo "$newuser ALL=(ALL) ALL" >> /etc/sudoers
 chsh -s /usr/bin/fish $newuser
 
-echo Installing paru...
-sudo pacman -S git base-devel
-git clone https://aur.archlinux.org/paru-bin.git
-cd paru-bin
-makepkg -sri
+# move to user aince makepkg catpnnot be run as root
+# echo Installing paru...
+# sudo pacman -S git base-devel
+# git clone https://aur.archlinux.org/paru-bin.git
+# cd paru-bin
+# makepkg -sri
 
 echo installing quality of life packages...
 pacman -S man wget fastfetch 
