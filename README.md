@@ -4,9 +4,13 @@ inspired by DARKOS: https://github.com/ahmad1abbadi/darkos, info used from https
 
 note: this is a 1 man project, updates and maintaining may be spotty
 
+# requirements
+- internet connection (~1-5GB of data will be used depending on distro choice )
+- Termux:X11 (if you plan to use a graphical enviornment) 
+- Termux:API
 # install
 ```bash
-curl -o install.zip https://github.com/gl1tch638/lightos/archive/refs/heads/main.zip && unzip install.zip && cd install && chmod +x setup.sh && ./setup.sh
+git clone --depth=1 https://github.com/gl1tch638/lightos.git && cd lightos && chmod +x setup.sh && ./setup.sh
 ```
 # todo
 
