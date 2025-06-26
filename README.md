@@ -17,6 +17,7 @@ features (planned)
 
 [  ] installer
   [  ] tui
+  [ ] error catching
   [  ] package selector
   [  ] wm selector
   [  ] distro selector
