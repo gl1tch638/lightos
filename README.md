@@ -11,20 +11,20 @@ curl -o install.zip https://github.com/gl1tch638/lightos/archive/refs/heads/main
 # todo
 
 features (planned)
-[ X ] launcher
-  [ X ] access to termux
-  [  ] launch to x11
+- [x] launcher
+  - [x] access to termux
+  - [ ] launch to x11
 
-[  ] installer
-  [  ] tui
+- [ ] installer
+  - [ ] tui
   [ ] error catching
-  [  ] package selector
-  [  ] wm selector
-  [  ] distro selector
-  [  ] inputless mode
-  [ x ] init user
-  [  ] box86
+  - [ ] package selector
+  - [ ] wm selector
+  - [ ] distro selector
+  - [ ] inputless mode
+  - [x] init user
+  - [ ] box86
 
-[  ] theme
+- [ ] theme
 qol:
-[  ] convienent way to start hardware accelerated
+- [ ] convienent way to start hardware accelerated
