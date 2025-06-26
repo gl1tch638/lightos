@@ -21,4 +21,4 @@ makepkg -sri
 echo installing quality of life packages...
 pacman -S man wget fastfetch 
 
-rm /root/.bashrc
+rm /root/.profile
