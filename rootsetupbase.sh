@@ -1,18 +1,20 @@
 #!/usr/bin/env bash
 
+newuser = newusername
+
 echo "updating and installing nescecarry packages... when it stops for input select the window and press enter"
 
 pacman -Syu
 pacman -S sudo fish
 
-echo Creating new user newusername...
-useradd -m -G wheel newusername
-echo "Enter a password for newusername (this can be changed later):"
-passwd newusername
-echo "newusername ALL=(ALL) ALL" >> /etc/sudoers
-chsh -s /usr/bin/fish newusername 
+echo Creating new user $newuser...
+useradd -m -G wheel $newuser
+echo "Enter a password for $newuser (this can be changed later):"
+passwd $newusername
+echo "$newuser ALL=(ALL) ALL" >> /etc/sudoers
+chsh -s /usr/bin/fish $newuser
 
-echo Installing paru,,,
+echo Installing paru...
 sudo pacman -S git base-devel
 git clone https://aur.archlinux.org/paru-bin.git
 cd paru-bin
