@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-newuser = newusername
+read -p "Type a name for the new user: " newuser
 
 echo "updating and installing nescecarry packages... when it stops for input select the window and press enter"
 
@@ -25,3 +25,4 @@ echo installing quality of life packages...
 pacman -S man wget fastfetch 
 
 rm /root/.profile
+
