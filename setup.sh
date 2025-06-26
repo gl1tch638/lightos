@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-read -p "Type a name for the new user: " newuser
-
 pkg update
 pkg install x11-repo
 pkg install termux-x11-nightly
@@ -17,11 +15,9 @@ pkg install proot-distro
 proot-distro install archlinux
 ln -s /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/archlinux prootdir
 ln -s ~ /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/archlinux/root/termuxroot
-
-cp rootsetupbase.sh rootsetupfinal.sh
-sed -i "s/newusername/$newusername/" rootsetupfinal.sh
-mv rootsetupfinal.sh /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/archlinux/root
-echo "chmod +x rootsetupfinal.sh && ./rootsetupfinal.sh" >> /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/archlinux/root/.profile
+cp rootsetupbase.sh rootsetup.sh
+mv rootsetup.sh /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/archlinux/root
+echo "chmod +x rootsetup.sh && ./rootsetup.sh" >> /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/archlinux/root/.profile
 
 proot-distro login archlinux
 
