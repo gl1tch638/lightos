@@ -19,7 +19,7 @@ ln -s /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/arch
 ln -s ~ /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/archlinux/root/termuxroot
 
 cp rootsetupbase.sh rootsetupfinal.sh
-sed 's/newusername/$newusername/g' rootsetupfinal.sh
+sed "s/newusername/$newusername/g" rootsetupfinal.sh
 mv rootsetupfinal.sh /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/archlinux/root
 echo "chmod +x rootsetupfinal.sh && ./rootsetupfinal.sh" >> /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/archlinux/root/.bashrc
 proot-distro login archlinux
