@@ -1,0 +1,2 @@
+# lightos
+a termux distro
