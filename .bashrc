@@ -1,5 +1,5 @@
 echo Logging in to Archlinux....
-proot-distro login --user sammy archlinux
+proot-distro login --user $newuser archlinux
 
    read -p "Exit to termux? (y/n): " response
    if [[ "$response" =~ ^([yY][eE][sS]|[yY])$ ]]; then
