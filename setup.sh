@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+mkdir .lightos
+cd .lightos
+mkdir themes 
+mkdir themes/fonts
+
 pkg update
 pkg install x11-repo
 pkg install termux-x11-nightly
