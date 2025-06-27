@@ -5,18 +5,20 @@ cd .lightos
 mkdir themes 
 mkdir themes/fonts
 
+echo installing proot tools...
 pkg update
 pkg install x11-repo
 pkg install termux-x11-nightly
 pkg install pulseaudio
 pkg install proot-distro
+pkg install openssh 
 
-# hardware accel
 # echo installing termux user repo...
 # pkg install tur-repo
 # echo installing hardware acceleration packages...
 # pkg install mesa-zink virglrenderer-mesa-zink vulkan-loader-android virglrenderer-android
 
+echo installing archlinux proot...
 proot-distro install archlinux
 ln -s /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/archlinux prootdir
 ln -s ~ /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/archlinux/root/termuxroot
