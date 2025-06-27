@@ -1,5 +1,5 @@
 # lightos
-a termux distro
+a proot ermux distro
 VERY EARLY STAGES!! pretty much just an arch init script rn
 inspired by DARKOS: https://github.com/ahmad1abbadi/darkos
 note: this is a 1 man project, updates and maintaining may be spotty
