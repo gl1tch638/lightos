@@ -1,8 +1,7 @@
-  GNU nano 8.4              .bashrc
 #!/usr/bin/env bash
 declare -i autostartval=5
-pdusername="sammy"
-pdosname="archlinux"
+pdusername="replaceuserstr" 
+pdosname="replaceosstr"
 echo -e "welcome to lightos!\nchoose boot type\n[1] lighto>
 read -p "==> " -t $autostartval selectedboot
 while [[ $selectedboot =~ ^[+-]?[0-9]+$ ]]; do
