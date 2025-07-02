@@ -10,7 +10,7 @@ echo Creating new user $newuser...
 useradd -m -G wheel $newuser
 echo "Enter a password for $newuser (this can be changed later):"
 passwd $newusername
-echo enter password for root acct (recomended same as user)
+echo enter password for root acct. recomended same as user
 passwd
 echo "$newuser ALL=(ALL) ALL" >> /etc/sudoers
 chsh -s /usr/bin/fish $newuser
