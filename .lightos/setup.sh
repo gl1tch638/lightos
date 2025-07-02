@@ -25,6 +25,7 @@ echo installing archlinux proot...
 proot-distro install archlinux
 
 ln -s /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/archlinux prootdir
+mkdir /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/archlinux/root/termuxdir
 ln -s ~ /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/archlinux/root/termuxdir/to
 
 cp rootsetupbase.sh rootsetup.sh
