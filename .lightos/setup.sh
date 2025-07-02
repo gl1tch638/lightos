@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+
 mv .lightos ~
 cd ~/.lightos
 mv .bashrc ~/.bashrc
@@ -19,7 +20,10 @@ yes | pkg install openssh
 
 echo installing archlinux proot...
 proot-distro install archlinux
+
 ln -s /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/archlinux prootdir
+ln -s ~ data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/archlinux/root/termuxdir/to
+
 cp rootsetupbase.sh rootsetup.sh
 mv rootsetup.sh /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/archlinux/root
 echo "chmod +x rootsetup.sh && ./rootsetup.sh" >> /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/archlinux/root/.profile
