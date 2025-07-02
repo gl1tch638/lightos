@@ -9,7 +9,7 @@ note: this is a 1 man project, updates and maintaining may be spotty
 - Termux:API
 # install
 ```bash
-git clone --depth=1 https://github.com/gl1tch638/lightos.git && cd lightos && chmod +x setup.sh && ./setup.sh
+pkg install git && git clone --depth=1 https://github.com/gl1tch638/lightos.git && cd lightos && chmod +x setup.sh && ./setup.sh
 ```
 # todo
 
