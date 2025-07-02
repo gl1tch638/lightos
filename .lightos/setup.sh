@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# add while true loop later
+echo "please accept the storage permission"
+termux-setup-storage
 
 mv .lightos ~
 cd ~/.lightos
@@ -22,7 +25,7 @@ echo installing archlinux proot...
 proot-distro install archlinux
 
 ln -s /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/archlinux prootdir
-ln -s ~ data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/archlinux/root/termuxdir/to
+ln -s ~ /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/archlinux/root/termuxdir/to
 
 cp rootsetupbase.sh rootsetup.sh
 mv rootsetup.sh /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/archlinux/root
