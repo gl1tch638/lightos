@@ -2,19 +2,20 @@
 
 mv .lightos ~
 cd ~/.lightos
+mv .bashrc ~/.bashrc
 
 echo installing proot tools...
 pkg update
-pkg install x11-repo
-pkg install termux-x11-nightly
-pkg install pulseaudio
-pkg install proot-distro
-pkg install openssh 
+yes | pkg install x11-repo
+yes | pkg install termux-x11-nightly
+yes | pkg install pulseaudio
+yes | pkg install proot-distro
+yes | pkg install openssh 
 
 # echo installing termux user repo...
-# pkg install tur-repo
+# yes | pkg install tur-repo
 # echo installing hardware acceleration packages...
-# pkg install mesa-zink virglrenderer-mesa-zink vulkan-loader-android virglrenderer-android
+# yes | pkg install mesa-zink virglrenderer-mesa-zink vulkan-loader-android virglrenderer-android
 
 echo installing archlinux proot...
 proot-distro install archlinux
