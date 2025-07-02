@@ -16,7 +16,7 @@ echo "$newuser ALL=(ALL) ALL" >> /etc/sudoers
 chsh -s /usr/bin/fish $newuser
 
 echo installing quality of life packages...
-yes | pacman -S man wget fastfetch tmux micro
+pacman -S man wget fastfetch tmux micro #yes pipe gets stuck on enter a number
 echo "set -g mouse on" >> ~/.tmux.conf
 
 echo downloading paru...
