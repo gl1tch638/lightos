@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+mv .lightos ~
+cd ~/.lightos
+
 echo installing proot tools...
 pkg update
 pkg install x11-repo
