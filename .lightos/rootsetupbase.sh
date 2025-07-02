@@ -5,7 +5,7 @@ read -p "Type a name for the new user: " newuser
 echo "updating and installing nescecarry packages... when it stops for input select the window and press enter"
 
 pacman -Syu
-pacman -S sudo fish
+yes | pacman -S sudo fish
 
 echo Creating new user $newuser...
 useradd -m -G wheel $newuser
@@ -17,11 +17,11 @@ echo "$newuser ALL=(ALL) ALL" >> /etc/sudoers
 chsh -s /usr/bin/fish $newuser
 
 echo installing quality of life packages...
-pacman -S man wget fastfetch tmux micro
+yes | pacman -S man wget fastfetch tmux micro
 echo "set -g mouse on" >> ~/.tmux.conf
 
-# echo downloading paru...
-sudo pacman -S git base-devel
+echo downloading paru...
+yes | sudo pacman -S git base-devel
 cd /home/$newuser
 git clone https://aur.archlinux.org/paru-bin.git
 cd paru-bin
