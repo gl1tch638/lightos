@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 
 mkdir .lightos
-cd .lightos
-mkdir themes 
-mkdir themes/fonts
+mkdir .lightos/themes 
+mkdir .lightos/themes/fonts
 
 echo installing proot tools...
 pkg update
@@ -21,12 +20,8 @@ pkg install openssh
 echo installing archlinux proot...
 proot-distro install archlinux
 ln -s /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/archlinux prootdir
-ln -s ~ /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/archlinux/root/termuxroot
 cp rootsetupbase.sh rootsetup.sh
 mv rootsetup.sh /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/archlinux/root
 echo "chmod +x rootsetup.sh && ./rootsetup.sh" >> /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/archlinux/root/.profile
 
 proot-distro login archlinux
-
-
-
