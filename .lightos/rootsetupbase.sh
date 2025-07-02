@@ -5,7 +5,7 @@ echo "updating and installing nescecarry packages... when it stops for input sel
 yes | pacman -Syu
 yes | pacman -S sudo fish
 
-read -p "Type a name for the new user: " newuserread -p "Type a name for the new user: " newuser
+read -p "Type a name for the new user: " newuser
 echo Creating new user $newuser...
 useradd -m -G wheel $newuser
 echo "Enter a password for $newuser (this can be changed later):"
