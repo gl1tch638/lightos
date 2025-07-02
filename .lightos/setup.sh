@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
 
-mkdir .lightos
-mkdir .lightos/themes 
-mkdir .lightos/themes/fonts
-
 echo installing proot tools...
 pkg update
 pkg install x11-repo
