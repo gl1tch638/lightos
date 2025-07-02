@@ -7,7 +7,7 @@ yes | pacman -S sudo fish
 
 read -p "Type a name for the new user: " newuser
 echo Creating new user $newuser...
-sed -i -e 's/replaceuserstr/$newuser/g' termuxdir/to/.bashrc
+sed -i -e "s/replaceuserstr/$newuser/g" termuxdir/to/.bashrc
 useradd -m -G wheel $newuser
 echo "Enter a password for $newuser (this can be changed later):"
 passwd $newusername
