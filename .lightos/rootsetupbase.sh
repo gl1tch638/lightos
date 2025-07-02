@@ -26,5 +26,6 @@ cd /home/$newuser
 git clone https://aur.archlinux.org/paru-bin.git
 cd paru-bin
 echo to finish installation, switch to new user, find folder and run command: makepkg -sri
+# cd paru-bin && makepkg -sri --noconfirm | su $newuser
 
 rm /root/.profile
