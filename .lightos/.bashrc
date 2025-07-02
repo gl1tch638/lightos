@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 declare -i autostartval=5
 pdusername="replaceuserstr" 
-pdosname="replaceosstr"
-echo -e "welcome to lightos!\nchoose boot type\n[1] lighto>
+pdosname="arch"
+echo -e "welcome to lightos!\nchoose boot type\n[1] lightos graphical\n[2] lightos terminal\n[3] fix mode"
 read -p "==> " -t $autostartval selectedboot
 while [[ $selectedboot =~ ^[+-]?[0-9]+$ ]]; do
 case $selectedboot in
