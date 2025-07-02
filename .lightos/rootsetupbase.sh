@@ -1,6 +1,6 @@
-.#!/usr/bin/env bash
+#!/usr/bin/env bash
 
-echo "updating and installing nescecarry packages... when it stops for input select the window and press enter"
+echo "updating and installing nescecarry packages... this may take a while"
 
 yes | pacman -Syu
 yes | pacman -S sudo fish
