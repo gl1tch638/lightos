@@ -1,5 +1,5 @@
 # lightos
-a proot ermux distro
+a proot Termux distro
 VERY EARLY STAGES!! pretty much just an arch init script rn
 inspired by DARKOS: https://github.com/ahmad1abbadi/darkos
 note: this is a 1 man project, updates and maintaining may be spotty
@@ -35,3 +35,4 @@ qol:
 # sources and thanks
 this project couldn't be possible without these useful sources!
 - https://github.com/LinuxDroidMaster/Termux-Desktops
+- https://github.com/adi1090x/termux-style
