@@ -2,7 +2,7 @@
 
 echo "updating and installing nescecarry packages... when it stops for input select the window and press enter"
 
-pacman -Syu
+yes | pacman -Syu
 yes | pacman -S sudo fish
 
 read -p "Type a name for the new user: " newuserread -p "Type a name for the new user: " newuser
