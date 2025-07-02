@@ -17,9 +17,10 @@ echo "$newuser ALL=(ALL) ALL" >> /etc/sudoers
 chsh -s /usr/bin/fish $newuser
 
 echo installing quality of life packages...
-pacman -S man wget fastfetch
+pacman -S man wget fastfetch tmux
+echo "set -g mouse on" >> ~/.tmux.conf
 
-# echo diwnloading paru...
+# echo downloading paru...
 sudo pacman -S git base-devel
 cd /home/$newuser
 git clone https://aur.archlinux.org/paru-bin.git
