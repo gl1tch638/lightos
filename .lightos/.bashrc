@@ -8,7 +8,7 @@ while [[ $selectedboot =~ ^[+-]?[0-9]+$ ]]; do
 case $selectedboot in
 1)
 clear
-echo "graphical session not installed, falling back to termux
+echo "graphical session not installed, falling back to termux"
 ;&
 2)
 clear
