@@ -2,7 +2,7 @@
 a proot [Termux](https://github.com/termux/termux-app) distro
 VERY EARLY STAGES!! pretty much just an arch init script rn
 inspired by DARKOS: https://github.com/ahmad1abbadi/darkos
-note: this is a 1 man project, updates and maintaining may be spotty
+note: this is a freetime project, updates and maintaining may be spotty
 # requirements
 - internet connection (~1-5GB of data will be used depending on distro choice )
 - Termux:X11 (if you plan to use a graphical enviornment) 
