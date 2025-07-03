@@ -7,6 +7,8 @@ termux-setup-storage
 mv ~/lightos/.lightos ~
 cd ~/.lightos
 mv .bashrc ~/.bashrc
+cp theme/fonts/CaskaydiaCoveNerdFontMono-Regular.ttf ~/.termux/font.ttf
+cp theme/colors/base16-3024-light.properties ~/.termux/colors.properties
 
 echo installing proot tools...
 pkg update
@@ -14,7 +16,7 @@ yes | pkg install x11-repo
 yes | pkg install termux-x11-nightly
 yes | pkg install pulseaudio
 yes | pkg install proot-distro
-yes | pkg install openssh 
+yes | pkg install openssh
 
 # echo installing termux user repo...
 # yes | pkg install tur-repo
