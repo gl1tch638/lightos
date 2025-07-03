@@ -4,7 +4,7 @@
 echo "please accept the storage permission"
 termux-setup-storage
 
-mv .lightos ~
+mv ~/lightos/.lightos ~
 cd ~/.lightos
 mv .bashrc ~/.bashrc
 
