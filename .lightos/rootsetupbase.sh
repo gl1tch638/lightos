@@ -17,8 +17,7 @@ echo "$newuser ALL=(ALL) ALL" >> /etc/sudoers
 chsh -s /usr/bin/fish $newuser
 
 echo installing quality of life packages...
-pacman -S man wget fastfetch tmux micro --noconfirm
-echo "set -g mouse on" >> ~/.tmux.conf
+pacman -S man wget fastfetch zellij micro --noconfirm
 
 echo downloading paru...
 yes | sudo pacman -S git base-devel
