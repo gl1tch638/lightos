@@ -11,7 +11,7 @@ echo "please accept the storage permission"
 termux-setup-storage
 sleep 1
 echo "please accept the storage permission"
-if test -d ~/storage then
+if test -d ~/storage; then
 break
 else
 echo "storage denied, please try again"
