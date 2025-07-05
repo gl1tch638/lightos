@@ -4,26 +4,26 @@ touch install.log
 echo updating repos... please wait
 pkg update &> install.log
 echo installing nescecarry packages...
-pkg -y install gum openssh &> install.log
+pkg install -y gum openssh &> install.log
 
-while true; do
-echo "please accept the storage permission"
-termux-setup-storage
-sleep 1
-echo "please accept the storage permission"
-if test -d ~/storage; then
-break
-else
-echo "storage denied, please try again"
-fi
-done
+# while true; do
+# echo "please accept the storage permission"
+# termux-setup-storage
+# sleep 1
+# echo "please accept the storage permission"
+# if test -d ~/storage; then
+# break
+# else
+# echo "storage denied, please try again"
+# fi
+# done
 
 gum spin --show-error --title "initalizing proot directories" -- mv ~/lightos/.lightos ~ && cd ~/.lightos && mv .bashrc ~/.bashrc && cp theme/fonts/CaskaydiaCoveNerdFontMono-Regular.ttf ~/.termux/font.ttf && cp theme/colors/base16-3024-light.properties ~/.termux/colors.properties
 
-gum spin --show-error --title "installing proot tools..." -- pkg -y install x11-repo &> install.log && pkg -y install termux-x11-nightly &> install.log && pkg -y install pulseaudio &> install.log && pkg -y install proot-distro &> install.log
+gum spin --show-error --title "installing proot tools..." -- pkg install -y x11-repo &> install.log && pkg install -y termux-x11-nightly &> install.log && pkg install -y pulseaudio &> install.log && pkg install -y proot-distro &> install.log
 
-gum spin --show-error --title "installing termux user repo..." -- pkg -y install tur-repo &> install.log
-gum spin --show-error --title "installing hardware acceleration packages..." -- pkg -y install mesa-zink virglrenderer-mesa-zink vulkan-loader-android virglrenderer-android &> install.log
+gum spin --show-error --title "installing termux user repo..." -- pkg install -y tur-repo &> install.log
+gum spin --show-error --title "installing hardware acceleration packages..." -- pkg install -y mesa-zink virglrenderer-mesa-zink vulkan-loader-android virglrenderer-android &> install.log
 
 gum spin --show-error --title "installing archlinux proot..." -- proot-distro install archlinux &> install.log
 
