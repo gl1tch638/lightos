@@ -1,5 +1,5 @@
 # lightos
-an easy setup proot [Termux] (https://github.com/termux/termux-app) distro
+an easy setup proot [Termux](https://github.com/termux/termux-app) distro
 
 # requirements
 - internet connection (~1-5GB of data will be used depending on distro choice )
@@ -7,7 +7,7 @@ an easy setup proot [Termux] (https://github.com/termux/termux-app) distro
 - Termux:API
 # install
 ```bash
-yes | pkg install git && git clone --depth=1 https://github.com/gl1tch638/lightos.git && cd lightos/.lightos && chmod +x setup.sh && ./setup.sh
+pkg install -y git gum && git clone --depth=1 https://github.com/gl1tch638/lightos.git && cd lightos/.lightos && chmod +x setup.sh && ./setup.sh
 ```
 # todo
 
