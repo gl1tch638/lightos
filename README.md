@@ -7,7 +7,7 @@ an easy setup proot [Termux] (https://github.com/termux/termux-app) distro
 - Termux:API
 # install
 ```bash
-yes | pkg install gum git && git clone --depth=1 https://github.com/gl1tch638/lightos.git && cd lightos/.lightos && chmod +x setup.sh && ./setup.sh
+yes | pkg install git && git clone --depth=1 https://github.com/gl1tch638/lightos.git && cd lightos/.lightos && chmod +x setup.sh && ./setup.sh
 ```
 # todo
 
