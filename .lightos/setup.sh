@@ -15,6 +15,7 @@ if test -d ~/storage then
 break
 else
 echo "storage denied, please try again"
+fi
 done
 
 gum spin --show-error --title "initalizing proot directories" -- mv ~/lightos/.lightos ~ && cd ~/.lightos && mv .bashrc ~/.bashrc && cp theme/fonts/CaskaydiaCoveNerdFontMono-Regular.ttf ~/.termux/font.ttf && cp theme/colors/base16-3024-light.properties ~/.termux/colors.properties
