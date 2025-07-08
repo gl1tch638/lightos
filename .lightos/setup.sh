@@ -17,7 +17,7 @@ cd ~/.lightos
 mv .bashrc ~/.bashrc
 
 #choose distro
-printf"Only archlinux supported for now!"
+echo "Only archlinux supported for now!"
 chosendistroalias=$(gum choose --limit 1 --header "Please choose your preferred version" adeliealpine archlinux artix chimera debian deepin fedora manjaro opensuse pardus rockylinux ubuntu void)
 
 setupTheme() {
@@ -60,7 +60,7 @@ proot-distro login $chosendistroalias
 }
 
 setupTheme
-installPROOT
-installHardwareAccel
+gum confirm "setup hardware acceleration?" && installHardwareAccel || echo "not setting up hardware acceleration"
 setupUsefulSymlink
+installPROOT
 finishNativeSetup
