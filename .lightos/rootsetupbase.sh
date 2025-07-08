@@ -3,7 +3,7 @@
 echo "updating and installing nescecarry packages... this may take a while"
 
 pacman -Syu --noconfirm
-pacman -S sudo fish --noconfirm
+pacman -S sudo fish gum --noconfirm
 
 echo installing quality of life packages...
 pacman -S man wget fastfetch micro --noconfirm
@@ -25,4 +25,22 @@ passwd $newusername
 echo "$newuser ALL=(ALL) ALL" >> /etc/sudoers
 chsh -s /usr/bin/fish $newuser
 
-rm /root/.profile
+gum confirm "setup desktop enviornment?" && setupdeconfirm=true || echo "not setting up graphical enviornment!"
+if [ "setupdeconfirm" == "true" ]; do
+chosendesktop=$(gum choose --limit 1 --header "Choose a desktop enviornment:" xfce4 lxde cinnamon kde-plasma-desktop gnome openbox nodesktop) #wayland: labwc hyprland
+fi
+case $chosendesktop in 
+nodesktop)
+break
+;;
+gnome)
+chosendesktop= "nano gnome gnome-shell gnome-terminal gnome-tweaks gnome-software nautilus gnome-shell-extension-manager gedit tigervnc-tools gnupg2"
+;&
+*)
+pacman -S $chosendesktop dbus dbus-x11 --noconfirm
+# if de=gnome do "find /usr -type f -iname "*login1*" -exec rm -f {} \; && mkdir /run/dbus"
+;;
+esac
+done
+
+rm /root/.profile--limit 1 --header 
