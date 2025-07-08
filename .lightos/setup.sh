@@ -19,6 +19,7 @@ mv .bashrc ~/.bashrc
 #choose distro
 echo "Only archlinux supported for now!"
 chosendistroalias=$(gum choose --limit 1 --header "Please choose your preferred version" adeliealpine archlinux artix chimera debian deepin fedora manjaro opensuse pardus rockylinux ubuntu void)
+sed -i -e "s/replaceosstr/$chosendistroalias/g" ~/.bashrc
 
 setupTheme() {
 cp theme/fonts/CaskaydiaCoveNerdFontMono-Regular.ttf ~/.termux/font.ttf
