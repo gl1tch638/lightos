@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
 
-touch install.log
-echo updating repos... please wait
-gum spin --show-error --title "updating packages, please wait..." -- pkg update
-
 # while true; do
 # echo "please accept the storage permission"
 # termux-setup-storage
@@ -16,17 +12,55 @@ gum spin --show-error --title "updating packages, please wait..." -- pkg update
 # fi
 # done
 
-gum spin --show-error --title "initalizing lightos directories" -- mv ~/lightos/.lightos ~ && cd ~/.lightos && mv .bashrc ~/.bashrc && cp theme/fonts/CaskaydiaCoveNerdFontMono-Regular.ttf ~/.termux/font.ttf && cp theme/colors/base16-3024-light.properties ~/.termux/colors.properties
+mv ~/lightos/.lightos ~
+cd ~/.lightos
+mv .bashrc ~/.bashrc
 
-gum spin --show-error --title "installing proot tools..." -- pkg install -y x11-repo | tee -a install.log && pkg install -y termux-x11-nightly | tee -a install.log && pkg install -y pulseaudio | tee -a install.log && pkg install -y proot-distro | tee -a install.log
+#choose distro
+printf"Only archlinux supported for now!"
+chosendistroalias=$(gum choose --limit 1 --header "Please choose your preferred version" adeliealpine archlinux artix chimera debian deepin fedora manjaro opensuse pardus rockylinux ubuntu void)
 
-gum spin --show-error --title "installing termux user repo..." -- pkg install -y tur-repo | tee -a install.log
-gum spin --show-error --title "installing hardware acceleration packages..." -- pkg install -y mesa-zink virglrenderer-mesa-zink vulkan-loader-android virglrenderer-android | tee -a install.log
+setupTheme() {
+cp theme/fonts/CaskaydiaCoveNerdFontMono-Regular.ttf ~/.termux/font.ttf
+cp theme/colors/base16-3024-light.properties ~/.termux/colors.properties
+}
 
-gum spin --show-error --title "installing archlinux proot..." -- proot-distro install archlinux | tee -a install.log
+installPROOT() {
+echo installing proot tools...
+pkg update
+pkg install -y x11-repo
+pkg install -y termux-x11-nightly
+pkg install -y pulseaudio
+pkg install -y proot-distro
+proot-distro install $chosendistroalias
+}
 
-gum spin --show-error --title "creating symlinks..." -- ln -s /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/archlinux prootdir | tee -a install.log && mkdir /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/archlinux/root/termuxdir | tee -a install.log && ln -s ~ /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/archlinux/root/termuxdir/to | tee -a install.log
+installTUR() {
+# echo installing termux user repo...
+# pkg install -y tur-repo
+}
 
-gum spin --show-error --title "initalizing root setup step..." -- cp rootsetupbase.sh rootsetup.sh | tee -a install.log && mv rootsetup.sh /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/archlinux/root | tee -a install.log && echo "chmod +x rootsetup.sh && ./rootsetup.sh" >> /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/archlinux/root/.profile
+installHardwareAccel() {
+# echo installing hardware acceleration packages...
+installTUR
+# pkg install -y mesa-zink virglrenderer-mesa-zink vulkan-loader-android virglrenderer-android
+}
 
-proot-distro login archlinux
+setupUsefulSymlink() {
+ln -s /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/$chosendistroalias prootdir
+mkdir /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/$chosendistroalias/root/termuxdir
+ln -s ~ /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/$chosendistroalias/root/termuxdir/to
+}
+
+finishNativeSetup() {
+cp rootsetupbase.sh rootsetup.sh
+mv rootsetup.sh /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/$chosendistroalias/root
+echo "chmod +x rootsetup.sh && ./rootsetup.sh" >> /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/$chosendistroalias/root/.profile
+proot-distro login $chosendistroalias
+}
+
+setupTheme
+installPROOT
+installHardwareAccel
+setupUsefulSymlink
+finishNativeSetup
