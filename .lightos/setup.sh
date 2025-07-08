@@ -36,14 +36,14 @@ proot-distro install $chosendistroalias
 }
 
 installTUR() {
-# echo installing termux user repo...
-# pkg install -y tur-repo
+echo installing termux user repo...
+pkg install -y tur-repo
 }
 
 installHardwareAccel() {
-# echo installing hardware acceleration packages...
+echo installing hardware acceleration packages...
 installTUR
-# pkg install -y mesa-zink virglrenderer-mesa-zink vulkan-loader-android virglrenderer-android
+pkg install -y mesa-zink virglrenderer-mesa-zink vulkan-loader-android virglrenderer-android
 }
 
 setupUsefulSymlink() {
