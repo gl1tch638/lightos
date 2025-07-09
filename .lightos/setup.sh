@@ -12,15 +12,6 @@
 # fi
 # done
 
-mv ~/lightos/.lightos ~
-cd ~/.lightos
-mv .bashrc ~/.bashrc
-
-#choose distro
-echo "Only archlinux supported for now!"
-chosendistroalias=$(gum choose --limit 1 --header "Please choose your preferred version" adeliealpine archlinux artix chimera debian deepin fedora manjaro opensuse pardus rockylinux ubuntu void)
-sed -i -e "s/replaceosstr/$chosendistroalias/g" ~/.bashrc
-
 setupTheme() {
 cp theme/fonts/CaskaydiaCoveNerdFontMono-Regular.ttf ~/.termux/font.ttf
 cp theme/colors/base16-3024-light.properties ~/.termux/colors.properties
@@ -60,8 +51,17 @@ echo "chmod +x rootsetup.sh && ./rootsetup.sh" >> /data/data/com.termux/files/us
 proot-distro login $chosendistroalias
 }
 
+mv ~/lightos/.lightos ~
+cd ~/.lightos
+mv .bashrc ~/.bashrc
+
+#choose distro
+echo "Only archlinux supported for now!"
+chosendistroalias=$(gum choose --limit 1 --header "Please choose your preferred version" adeliealpine archlinux artix chimera debian deepin fedora manjaro opensuse pardus rockylinux ubuntu void)
+sed -i -e "s/replaceosstr/$chosendistroalias/g" ~/.bashrc
+
 setupTheme
 gum confirm "setup hardware acceleration?" && installHardwareAccel || echo "not setting up hardware acceleration"
-setupUsefulSymlink
 installPROOT
+setupUsefulSymlink
 finishNativeSetup
