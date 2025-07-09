@@ -18,7 +18,7 @@ echo to finish installation, switch to new user, find folder and run command: ma
 
 read -p "Type a name for the new user: " newuser
 echo Creating new user $newuser...
-sed -i -e "s/replaceuserstr/$newuser/g" termuxdir/to/.bashrc
+sed -i -e "s/replaceuserstr/$newuser/g" /root/termuxdir/to/.bashrc
 useradd -m -G wheel $newuser
 echo "Enter a password for $newuser (this can be changed later):"
 passwd $newusername
@@ -26,7 +26,7 @@ echo "$newuser ALL=(ALL) ALL" >> /etc/sudoers
 chsh -s /usr/bin/fish $newuser
 
 gum confirm "setup desktop enviornment?" && setupdeconfirm=true || echo "not setting up graphical enviornment!"
-if [ "setupdeconfirm" == "true" ]; do
+if [ "setupdeconfirm" == "true" ]; then
 chosendesktop=$(gum choose --limit 1 --header "Choose a desktop enviornment:" xfce4 lxde cinnamon kde-plasma-desktop gnome openbox nodesktop) #wayland: labwc hyprland
 fi
 case $chosendesktop in 
@@ -38,7 +38,7 @@ chosendesktop= "nano gnome gnome-shell gnome-terminal gnome-tweaks gnome-softwar
 ;&
 *)
 pacman -S $chosendesktop dbus dbus-x11 --noconfirm
-# if de=gnome do "find /usr -type f -iname "*login1*" -exec rm -f {} \; && mkdir /run/dbus"
+# if de=gnome them "find /usr -type f -iname "*login1*" -exec rm -f {} \; && mkdir /run/dbus"
 ;;
 esac
 done
