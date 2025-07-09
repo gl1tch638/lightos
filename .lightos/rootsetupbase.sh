@@ -1,5 +1,22 @@
 #!/usr/bin/env bash
 
+setupDE() {
+chosendesktop=$(gum choose --limit 1 --header "Choose a desktop enviornment:" xfce4 lxde cinnamon kde-plasma-desktop gnome openbox nodesktop) #wayland: labwc hyprland
+
+case $chosendesktop in 
+nodesktop)
+break
+;;
+gnome)
+chosendesktop= "nano gnome gnome-shell gnome-terminal gnome-tweaks gnome-software nautilus gnome-shell-extension-manager gedit tigervnc-tools gnupg2"
+;&
+*)
+pacman -S $chosendesktop dbus --noconfirm
+# if de=gnome them "find /usr -type f -iname "*login1*" -exec rm -f {} \; && mkdir /run/dbus"
+;;
+esac
+}
+
 echo "updating and installing nescecarry packages... this may take a while"
 
 pacman -Syu --noconfirm
@@ -25,22 +42,6 @@ passwd $newusername
 echo "$newuser ALL=(ALL) ALL" >> /etc/sudoers
 chsh -s /usr/bin/fish $newuser
 
-gum confirm "setup desktop enviornment?" && setupdeconfirm=true || echo "not setting up graphical enviornment!"
-if [ "setupdeconfirm" == "true" ]; then
-chosendesktop=$(gum choose --limit 1 --header "Choose a desktop enviornment:" xfce4 lxde cinnamon kde-plasma-desktop gnome openbox nodesktop) #wayland: labwc hyprland
-fi
-case $chosendesktop in 
-nodesktop)
-break
-;;
-gnome)
-chosendesktop= "nano gnome gnome-shell gnome-terminal gnome-tweaks gnome-software nautilus gnome-shell-extension-manager gedit tigervnc-tools gnupg2"
-;&
-*)
-pacman -S $chosendesktop dbus dbus-x11 --noconfirm
-# if de=gnome them "find /usr -type f -iname "*login1*" -exec rm -f {} \; && mkdir /run/dbus"
-;;
-esac
-done
+gum confirm "setup desktop enviornment?" && setupDE || echo "failed setting up graphical enviornment!"
 
-rm /root/.profile--limit 1 --header 
+rm /root/.profile
