@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 setupDE() {
-chosendesktop=$(gum choose --limit 1 --header "Choose a desktop enviornment:" xfce4 lxde cinnamon kde-plasma-desktop gnome openbox nodesktop) #wayland: labwc hyprland
+chosendesktop=$(gum choose --limit 1 --header "Choose a desktop enviornment:" xfce4 lxde cinnamon kde-plasma-desktop gnome openbox nodesktop) #wayland: labwc hyprland // note: wayland wms are VNC only!
 
 case $chosendesktop in 
 nodesktop)
@@ -26,12 +26,8 @@ echo installing quality of life packages...
 pacman -S man wget fastfetch micro --noconfirm
 
 echo downloading paru...
-sudo pacman -S git base-devel --noconfirm
-cd /home/$newuser
-git clone https://aur.archlinux.org/paru-bin.git
-cd paru-bin
-echo to finish installation, switch to new user, find folder and run command: makepkg -sri
-# cd paru-bin && makepkg -sri --noconfirm | su $newuser
+pacman -S git base-devel --needed --noconfirm
+su -c "cd ~ && git clone https://aur.archlinux.org/paru-bin.git && cd paru-bin && makepkg -sri --noconfirm" $newuser
 
 read -p "Type a name for the new user: " newuser
 echo Creating new user $newuser...
