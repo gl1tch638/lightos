@@ -1,14 +1,15 @@
 #!/usr/bin/env bash
 declare -i autostartval=5
-pdusername="replaceuserstr" 
+pdusername="replaceuserstr"
 pdosname="replaceosstr"
+pdwmname="replacewmstr"
 echo -e "welcome to lightos!\nchoose boot type\n[1] lightos graphical\n[2] lightos terminal\n[3] fix mode"
 read -p "==> " -t $autostartval selectedboot
 while [[ $selectedboot =~ ^[+-]?[0-9]+$ ]]; do
 case $selectedboot in
 1)
 clear
-
+echo starting lightos graphical...
 # 'borrowed' from termux-desktops
 # Kill open X11 processes
 kill -9 $(pgrep -f "termux.x11") 2>/dev/null
@@ -35,8 +36,6 @@ sleep 1
 proot-distro login $pdosname --shared-tmp -- /bin/bash -c  'export PULSE_SERVER=127.0.0.1 && export XDG_RUNTIME_DIR=${TMPDIR} && su - $pdusername -c "env DISPLAY=:0 startxfce4"'
 
 exit 0
-
-echo "graphical session not installed, falling back to termux"
 ;;
 2)
 clear
