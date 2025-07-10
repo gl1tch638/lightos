@@ -37,7 +37,7 @@ proot-distro login $pdosname --shared-tmp -- /bin/bash -c  'export PULSE_SERVER=
 exit 0
 
 echo "graphical session not installed, falling back to termux"
-;&
+;;
 2)
 clear
 echo launching $pdosname...
