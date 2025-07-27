@@ -12,14 +12,25 @@
 # fi
 # done
 
+setupAPI () {
+# put apk install prompt here
+pkg install termux-api -y
+}
+
+setupTermuxADB () {
+setupAPI
+curl -s https://raw.githubusercontent.com/nohajc/termux-adb/master/install.sh | bash && exit
+}
+
 setupTheme() {
 cp theme/fonts/CaskaydiaCoveNerdFontMono-Regular.ttf ~/.termux/font.ttf
 cp theme/colors/base16-3024-light.properties ~/.termux/colors.properties
+echo -e "use-black-ui=false\nbell-character=beep" >> ~/.termux/termux.properties
 }
 
 installPROOT() {
 echo installing proot tools...
-pkg update
+pkg update -y
 pkg install -y x11-repo
 pkg install -y termux-x11-nightly
 pkg install -y pulseaudio
@@ -62,6 +73,7 @@ sed -i -e "s/replaceosstr/$chosendistroalias/g" ~/.bashrc
 
 setupTheme
 gum confirm "setup hardware acceleration?" && installHardwareAccel || echo "not setting up hardware acceleration"
+gum confirm "setup termux ADB?" && installTermuxADB || echo "skip setup Termux ADB"
 installPROOT
 setupUsefulSymlink
 finishNativeSetup
